@@ -1,0 +1,75 @@
+openapi: '3.0.0'
+info:
+  title: test auth API
+  version: 1.0.1
+
+paths:
+
+  /api/auth/signup:
+    post:
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: testname
+                surname:
+                  type: string
+                  example: testsurname
+                email:
+                  type: string
+                  example: testverstion@gmail.com
+                password:
+                  type: string
+                  example: 12345test
+                dateOfBirth:
+                  type: string
+                  example: 0000.00.00
+                modileNumber:
+                  type: string
+                  example: +555 555 555 555 
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                 data:
+                    type: object
+                      
+  /api/auth/login:
+    post:
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: testverstion@gmail.com
+                password:
+                  type: string
+                  example: 12345test
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                      
