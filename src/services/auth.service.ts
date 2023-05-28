@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
 
 
-export const signupService = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+export const signupService = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
   try {
     const isEmailExit = await User.findOne({ email: new RegExp(`^${req.body.email}$`, "i") });
     if (isEmailExit) {
@@ -21,7 +21,7 @@ export const signupService = async (req: Request, res: Response, next: NextFunct
 };
 
 
-export const loginService = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+export const loginService = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
   const { email, password } = req.body;
 
   try {

@@ -1,8 +1,10 @@
+/* eslint-disable no-restricted-syntax */
 import mongoose, { ConnectOptions, Error } from "mongoose";
 
 
 mongoose.set("strictQuery", true);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const connectDB = (MONGODB_URI: any): Promise<typeof mongoose> => {
   mongoose.connection.on("connected", () => {
     if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {

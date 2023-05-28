@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import { authorizationRoles } from "../constants/auth";
 import { IUser } from "../interfaces/User";
 
