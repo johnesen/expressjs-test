@@ -8,10 +8,6 @@ import { Document, Schema, model } from "mongoose";
 
 export interface IUserDocument extends Document, IUser {
   comparePassword: (password: string) => Promise<boolean>;
-  createJWT: () => Promise<void>;
-  clearCart: () => Promise<void>;
-  addToCart: (prodId: string) => Promise<boolean>;
-  removeFromCart: (prodId: string) => Promise<void>;
 }
 
 export const UserSchema = new Schema<IUserDocument>(
