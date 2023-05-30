@@ -44,17 +44,6 @@ export const UserSchema = new Schema<IUserDocument>(
       trim: true,
       select: false,
     },
-    dateOfBirth: {
-      type: String,
-      maxLength: 15,
-      trim: true,
-    },
-    mobileNumber: {
-      type: String,
-      required: false,
-      maxLength: [ 18, "mobileNumber can't be greater than 18 characters" ],
-      trim: true,
-    },
     role: {
       type: String,
       trim: true,
@@ -66,30 +55,9 @@ export const UserSchema = new Schema<IUserDocument>(
       ],
       default: authorizationRoles.user,
     },
-    isVerified: {
-      type: Boolean,
-      default: true,
-      required: false,
-    },
     isDeleted: {
       type: Boolean,
       default: false,
-    },
-    status: {
-      type: String,
-      enum: [ "pending", "active" ],
-      default: "active",
-      required: false,
-      trim: true,
-      lowercase: true,
-    },
-    bio: {
-      type: String,
-      required: false,
-      trim: true,
-      minlength: [ 10, "Bio can't be smaller than 10 characters" ],
-      maxLength: [ 300, "Bio can't be greater than 300 characters" ],
-      lowercase: true,
     },
   },
 );

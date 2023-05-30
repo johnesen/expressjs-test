@@ -73,3 +73,51 @@ paths:
                   data:
                     type: object
                       
+  /api/products/:
+    get:
+      tags:
+        - Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: list
+                # properties:
+                 
+                      
+  /api/products/create:
+    post:
+      tags:
+        - Product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: test
+                description:
+                  type: string
+                  example: test desc
+                photo:
+                  type: string
+                  example: photoLInk
+                userId:
+                  type: string
+                  example: ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                      

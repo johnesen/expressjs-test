@@ -7,15 +7,5 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role?: string;
-  acceptTerms: boolean;
-  mobileNumber?: string;
-  bio?: string;
-  status?: string;
-  isVerified?: boolean;
   isDeleted?: boolean;
-  dateOfBirth?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  userId?: string;
-  timestamps?: boolean;
 }

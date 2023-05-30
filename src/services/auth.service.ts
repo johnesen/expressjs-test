@@ -29,6 +29,14 @@ export const loginService = async (req: Request, res: Response, next: NextFuncti
       { email: new RegExp(`^${email}$`, "i") })
       .select("+password")
       .exec();
+    // const user = await User.aggregate().match({ email: email }).lookup(
+    //   {
+    //     from: "products",
+    //     as: "products",
+    //     localField: "_id",
+    //     foreignField: "userId",
+    //   },
+    // ).exec();
 
     if (!user) {
       return res.status(401).json({ message: "user not authorized" });
