@@ -2,6 +2,7 @@ import User from "../models/User.model";
 
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
+import jwt, { Secret, JwtPayload } from "jsonwebtoken";
 
 
 export const signupService = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
@@ -33,13 +34,16 @@ export const loginService = async (req: Request, res: Response, next: NextFuncti
     if (!user) {
       return res.status(401).json({ message: "user does not exist" });
     }
+    const token = jwt.sign(
+      { _id: user._id?.toString(), name: user.name, email: user.email },
+      "SECRET_KEY", { expiresIn: "2 days" });
 
     const isPasswordCorrect = await user.comparePassword(password);
 
     if (!isPasswordCorrect) {
       return res.status(400).json({ message: "password isn't correct" });
     }
-    return res.status(200).json({ data: user });
+    return res.status(200).json({ data: user, token: token });
   } catch (error) {
     next(error);
   }
