@@ -2,7 +2,7 @@ import User from "../models/User.model";
 
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
-import jwt, { Secret, JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 
 export const signupService = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
@@ -34,9 +34,7 @@ export const loginService = async (req: Request, res: Response, next: NextFuncti
     if (!user) {
       return res.status(401).json({ message: "user does not exist" });
     }
-    const token = jwt.sign(
-      { _id: user._id?.toString(), name: user.name, email: user.email },
-      "SECRET_KEY", { expiresIn: "2 days" });
+    const token = await generageToken(user);
 
     const isPasswordCorrect = await user.comparePassword(password);
 
@@ -47,4 +45,14 @@ export const loginService = async (req: Request, res: Response, next: NextFuncti
   } catch (error) {
     next(error);
   }
+};
+
+
+export const generageToken = async (user: any): Promise<string> => {
+  const token = jwt.sign(
+    { _id: user._id?.toString(), name: user.name, email: user.email },
+    "SECRET_KEY", { expiresIn: "2 days" });
+
+  return token;
+
 };

@@ -86,5 +86,6 @@ UserSchema.post("save", function () {
   }
 });
 
+const User = model<IUserDocument>("User", UserSchema);
 
-export default model<IUserDocument>("User", UserSchema);
+export default User;
