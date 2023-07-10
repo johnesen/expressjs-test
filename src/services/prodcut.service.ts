@@ -27,9 +27,13 @@ export const getProductsSevice = async (
   req: Request, res: Response, next: NextFunction,
 ): Promise<Response | void> => {
   try {
-    const product = await Product.find();
+    const userID = req.query.userId;
+    if (!userID) {
+      next(createHttpError(400, "gavno went wrong"));
+    }
+    const product = await Product.find({ userId: userID }).exec();
     return res.status(200).json(product);
-  } catch (error) {
-    next(createHttpError(400, "somethe went wrong"));
+  } catch (err) {
+    next(createHttpError(400, "error"));
   }
 };
