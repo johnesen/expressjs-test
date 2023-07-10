@@ -1,10 +1,9 @@
 import { environmentConfig } from "../configs";
-import User, { IUserDocument, UserSchema } from "../models/User.model";
+import User from "../models/User.model";
 
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
 import jwt from "jsonwebtoken";
-import { Document } from "mongoose";
 
 
 export const signupService = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
