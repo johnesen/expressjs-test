@@ -1,8 +1,10 @@
-import User from "../models/User.model";
+import { environmentConfig } from "../configs";
+import User, { IUserDocument, UserSchema } from "../models/User.model";
 
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
 import jwt from "jsonwebtoken";
+import { Document } from "mongoose";
 
 
 export const signupService = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
@@ -48,10 +50,11 @@ export const loginService = async (req: Request, res: Response, next: NextFuncti
 };
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const generageToken = async (user: any): Promise<string> => {
   const token = jwt.sign(
     { _id: user._id?.toString(), name: user.name, email: user.email },
-    "SECRET_KEY", { expiresIn: "2 days" });
+    environmentConfig.SECRET_KEY!, { expiresIn: "2 days" });
 
   return token;
 

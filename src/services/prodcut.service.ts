@@ -19,18 +19,13 @@ export const createProductService = async (
     product.save();
     return res.status(201).json({ data: product });
   } catch (error) {
-    next(createHttpError(400, "somethe went wrong"));
+    next(createHttpError(400, "something went wrong"));
   }
 };
 
 export const getProductsSevice = async (
-  req: Request, res: Response, next: NextFunction,
+  req: Request, res: Response,
 ): Promise<Response | void> => {
-  try {
-    const product = await Product.find({ userId: req.body.user._id }).exec();
-    return res.status(200).json(product);
-
-  } catch (err) {
-    next(createHttpError(400, "error"));
-  }
+  const product = await Product.find({ userId: req.body.user._id }).exec();
+  return res.status(200).json(product);
 };

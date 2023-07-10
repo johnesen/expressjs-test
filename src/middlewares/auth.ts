@@ -1,3 +1,4 @@
+import { environmentConfig } from "../configs";
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
 import createHttpError from "http-errors";
@@ -8,14 +9,14 @@ const authorize = async (req: Request, res: Response, next: NextFunction): Promi
   try {
     const token = req.header("Authorization")?.replace("Bearer ", "");
     if (!token) {
-      next(createHttpError(401, "user not authenticated"));
+      next(createHttpError(401, "User is not authorized"));
       return;
     }
-    const decoded = jwt.verify(token, "SECRET_KEY");
+    const decoded = jwt.verify(token, environmentConfig.SECRET_KEY!);
     req.body.user = decoded;
     next();
   } catch (err) {
-    next(createHttpError(403, "toekn not valid"));
+    next(createHttpError(403, "Token not valid"));
   }
 };
 
