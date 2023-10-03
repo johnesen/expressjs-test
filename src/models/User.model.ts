@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-import { authorizationRoles } from "../constants/auth";
-import { IUser } from "../interfaces/User";
+import { authorizationRoles } from "../constants/auth.js";
+import { IUser } from "../interfaces/User.js";
 
 import bcrypt from "bcrypt";
 import { Document, Schema, model } from "mongoose";

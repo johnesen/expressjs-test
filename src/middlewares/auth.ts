@@ -1,4 +1,5 @@
-import { environmentConfig } from "../configs";
+// import { environmentConfig } from "../configs.Custom";
+import environmentConfig from "../configs/customEnvVars.js";
 import { Request, Response } from "express";
 import { NextFunction } from "express-serve-static-core";
 import createHttpError from "http-errors";

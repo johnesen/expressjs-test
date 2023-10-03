@@ -1,4 +1,4 @@
-import { getProductsSevice, createProductService } from "../services/prodcut.service";
+import { getProductsSevice, createProductService } from "../services/prodcut.service.js";
 
 import { NextFunction, Request, Response } from "express";
 

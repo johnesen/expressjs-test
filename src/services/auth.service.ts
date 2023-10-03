@@ -1,5 +1,5 @@
-import { environmentConfig } from "../configs";
-import User from "../models/User.model";
+import { environmentConfig } from "../configs/index.js";
+import User from "../models/User.model.js";
 
 import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";

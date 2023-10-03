@@ -1,2 +1,2 @@
-export * from "./customEnvVars";
-export * from "./db.config";
+export * from "./customEnvVars.js";
+export * from "./db.config.js";

@@ -1,4 +1,4 @@
-import { loginService, signupService } from "../services/auth.service";
+import { loginService, signupService } from "../services/auth.service.js";
 
 import { Request, Response, NextFunction } from "express";
 

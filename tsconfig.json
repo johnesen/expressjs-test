@@ -1,25 +1,19 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": [
-        "esnext"
-      ],
-      "baseUrl": "./src",
-      "allowJs": true,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noFallthroughCasesInSwitch": true,
-      "module": "commonjs",  
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noEmit": true,
-    },
-    "include": [
-      "./**/*"
-    ]
-  }
-  
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "baseUrl": "./src",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": ["./**/*"]
+}

@@ -1,4 +1,4 @@
-import Product from "../models/Product.model";
+import Product from "../models/Product.model.js";
 
 import { Response, Request, NextFunction } from "express";
 import createHttpError from "http-errors";

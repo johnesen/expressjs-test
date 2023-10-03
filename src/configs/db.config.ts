@@ -50,7 +50,6 @@ export const connectDB = (MONGODB_URI: any): Promise<typeof mongoose> => {
 
 
   mongoose.connect(MONGODB_URI, {
-    keepAlive: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   } as ConnectOptions);

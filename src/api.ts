@@ -1,5 +1,5 @@
-import authRoutes from "./routes/auth.route";
-import productRoutes from "./routes/product.route";
+import authRoutes from "./routes/auth.route.js";
+import productRoutes from "./routes/product.route.js";
 
 import express from "express";
 
